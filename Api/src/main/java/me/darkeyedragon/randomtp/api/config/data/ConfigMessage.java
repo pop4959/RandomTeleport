@@ -1,9 +1,9 @@
-package me.darkeyedragon.randomtp.bukkit.config.data;
+package me.darkeyedragon.randomtp.api.config.data;
 
-import me.darkeyedragon.randomtp.bukkit.world.RandomWorld;
+import me.darkeyedragon.randomtp.api.world.RandomWorld;
 
-interface ConfigMessage {
-    
+public interface ConfigMessage {
+
     ConfigMessage init(String init);
 
     ConfigMessage initTeleportDelay(String initTeleportDelay);
@@ -13,7 +13,7 @@ interface ConfigMessage {
     ConfigMessage teleport(String teleport);
 
     ConfigMessage depletedQueue(String depletedQueue);
-    
+
     ConfigMessage countdown(String countdown);
 
     ConfigMessage noWorldPermission(String noWorldPermission);

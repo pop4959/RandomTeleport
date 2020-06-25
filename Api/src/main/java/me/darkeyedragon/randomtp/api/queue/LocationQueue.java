@@ -1,9 +1,9 @@
-package me.darkeyedragon.randomtp.bukkit.queue;
+package me.darkeyedragon.randomtp.api.queue;
 
 
-import me.darkeyedragon.randomtp.bukkit.location.LocationSearcher;
-import me.darkeyedragon.randomtp.bukkit.location.WorldConfigSection;
-import me.darkeyedragon.randomtp.bukkit.location.RandomLocation;
+import me.darkeyedragon.randomtp.api.location.LocationSearcher;
+import me.darkeyedragon.randomtp.api.location.RandomLocation;
+import me.darkeyedragon.randomtp.api.location.WorldConfigSection;
 
 public class LocationQueue extends ObservableQueue<RandomLocation> {
     private final LocationSearcher locationSearcher;
@@ -24,8 +24,9 @@ public class LocationQueue extends ObservableQueue<RandomLocation> {
     public void generate(WorldConfigSection worldConfigSection) {
         generate(worldConfigSection, super.remainingCapacity());
     }
-    public void generate(WorldConfigSection worldConfigSection, int amount){
-        for(int i = 0; i < amount; i++){
+
+    public void generate(WorldConfigSection worldConfigSection, int amount) {
+        for (int i = 0; i < amount; i++) {
             locationSearcher.getRandomLocation(worldConfigSection).thenAccept(this::offer);
         }
     }

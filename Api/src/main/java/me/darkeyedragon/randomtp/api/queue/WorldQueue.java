@@ -1,14 +1,14 @@
-package me.darkeyedragon.randomtp.bukkit.queue;
+package me.darkeyedragon.randomtp.api.queue;
 
-import me.darkeyedragon.randomtp.bukkit.location.LocationSearcher;
-import me.darkeyedragon.randomtp.bukkit.location.RandomLocation;
-import me.darkeyedragon.randomtp.bukkit.world.RandomWorld;
+import me.darkeyedragon.randomtp.api.location.LocationSearcher;
+import me.darkeyedragon.randomtp.api.location.RandomLocation;
+import me.darkeyedragon.randomtp.api.world.RandomWorld;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
-public abstract class WorldQueue{
+public abstract class WorldQueue {
 
     private final Map<RandomWorld, LocationQueue> worldQueueMap;
     private final LocationSearcher locationSearcher;
@@ -22,7 +22,7 @@ public abstract class WorldQueue{
         return worldQueueMap.put(world, locationQueue);
     }
 
-    public LocationQueue remove(RandomWorld world){
+    public LocationQueue remove(RandomWorld world) {
         return worldQueueMap.remove(world);
     }
 
@@ -34,9 +34,9 @@ public abstract class WorldQueue{
         worldQueueMap.clear();
     }
 
-    public RandomLocation popLocation(RandomWorld world){
+    public RandomLocation popLocation(RandomWorld world) {
         LocationQueue locationQueue = get(world);
-        if(locationQueue == null){
+        if (locationQueue == null) {
             return null;
         }
         return locationQueue.poll();

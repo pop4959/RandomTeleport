@@ -1,6 +1,7 @@
-package me.darkeyedragon.randomtp.bukkit.location;
+package me.darkeyedragon.randomtp.api.location;
 
-import me.darkeyedragon.randomtp.bukkit.world.RandomWorld;
+
+import me.darkeyedragon.randomtp.api.world.RandomWorld;
 
 public interface RandomLocation {
 

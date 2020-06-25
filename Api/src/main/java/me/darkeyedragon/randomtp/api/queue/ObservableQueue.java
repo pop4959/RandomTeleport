@@ -1,4 +1,4 @@
-package me.darkeyedragon.randomtp.bukkit.queue;
+package me.darkeyedragon.randomtp.api.queue;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,17 +22,19 @@ class ObservableQueue<T> extends ArrayBlockingQueue<T> {
         super(capacity, fair, c);
     }
 
-    public void subscribe(QueueListener<T> listener){
+    public void subscribe(QueueListener<T> listener) {
         listeners.add(listener);
     }
+
     @Override
-    public boolean offer(T element){
+    public boolean offer(T element) {
         boolean changed = super.offer(element);
         listeners.forEach(listener -> listener.onAdd(element));
         return changed;
     }
+
     @Override
-    public T poll(){
+    public T poll() {
         T element = super.poll();
         listeners.forEach(listener -> listener.onRemove(element));
         return element;

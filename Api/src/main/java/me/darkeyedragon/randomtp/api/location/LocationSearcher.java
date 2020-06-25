@@ -1,6 +1,6 @@
-package me.darkeyedragon.randomtp.bukkit.location;
+package me.darkeyedragon.randomtp.api.location;
 
-import me.darkeyedragon.randomtp.bukkit.world.RandomChunk;
+import me.darkeyedragon.randomtp.api.world.RandomChunk;
 
 import java.util.concurrent.CompletableFuture;
 

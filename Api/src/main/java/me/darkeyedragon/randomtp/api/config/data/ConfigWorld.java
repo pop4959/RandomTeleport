@@ -1,8 +1,8 @@
-package me.darkeyedragon.randomtp.bukkit.config.data;
+package me.darkeyedragon.randomtp.api.config.data;
 
-import me.darkeyedragon.randomtp.bukkit.location.WorldConfigSection;
-import me.darkeyedragon.randomtp.bukkit.queue.LocationQueue;
-import me.darkeyedragon.randomtp.bukkit.world.RandomWorld;
+import me.darkeyedragon.randomtp.api.location.WorldConfigSection;
+import me.darkeyedragon.randomtp.api.queue.LocationQueue;
+import me.darkeyedragon.randomtp.api.world.RandomWorld;
 
 import java.util.Map;
 import java.util.Set;
