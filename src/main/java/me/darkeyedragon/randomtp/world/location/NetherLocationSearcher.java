@@ -2,11 +2,9 @@ package me.darkeyedragon.randomtp.world.location;
 
 import me.darkeyedragon.randomtp.RandomTeleport;
 import me.darkeyedragon.randomtp.validator.ChunkValidator;
-import org.bukkit.Chunk;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 
 import java.util.EnumSet;
 
@@ -69,6 +67,16 @@ public class NetherLocationSearcher extends LocationSearcher {
             if (!validator.isValid(loc)) {
                 return false;
             }
+        }
+        Block block = loc.getBlock();
+        Block offsetDown = loc.getBlock().getRelative(BlockFace.DOWN);
+        Block offsetUp = loc.getBlock().getRelative(BlockFace.UP);
+        if (block.getType() == Material.LAVA || offsetDown.getType() == Material.LAVA || offsetUp.getType() == Material.LAVA) {
+            Bukkit.getLogger().warning("========================================START===========================================");
+            Bukkit.getLogger().warning("Block: " + block.getBiome().name() + ": " + block.getType().name());
+            Bukkit.getLogger().warning("Block Down: " + offsetDown.getBiome().name() + ": " + offsetDown.getType().name());
+            Bukkit.getLogger().warning("Block Up: " + offsetUp.getBiome().name() + ": " + offsetUp.getType().name());
+            Bukkit.getLogger().warning("========================================END===========================================");
         }
         return true;
     }

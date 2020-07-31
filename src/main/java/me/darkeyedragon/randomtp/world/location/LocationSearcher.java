@@ -3,12 +3,10 @@ package me.darkeyedragon.randomtp.world.location;
 import io.papermc.lib.PaperLib;
 import me.darkeyedragon.randomtp.RandomTeleport;
 import me.darkeyedragon.randomtp.validator.ChunkValidator;
-import org.bukkit.Chunk;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 
 import java.util.EnumSet;
 import java.util.HashSet;
@@ -115,6 +113,11 @@ public class LocationSearcher {
                 return false;
             }
         }
+        Bukkit.getLogger().info("Block : " + loc.getBlock().getBiome().name() + ": " + loc.getBlock().getType().name());
+        Block offsetDown = loc.getBlock().getRelative(BlockFace.DOWN);
+        Block offsetUp = loc.getBlock().getRelative(BlockFace.UP);
+        Bukkit.getLogger().info("Block Down: " + offsetDown.getBiome().name() + ": " + offsetDown.getType().name());
+        Bukkit.getLogger().info("Block Up: " + offsetUp.getBiome().name() + ": " + offsetUp.getType().name());
         return true;
     }
 

@@ -2,6 +2,7 @@ package me.darkeyedragon.randomtp;
 
 import co.aikar.commands.InvalidCommandArgument;
 import co.aikar.commands.PaperCommandManager;
+import me.darkeyedragon.randomtp.automate.Timer;
 import me.darkeyedragon.randomtp.command.TeleportCommand;
 import me.darkeyedragon.randomtp.command.context.PlayerWorldContext;
 import me.darkeyedragon.randomtp.config.ConfigHandler;
@@ -98,6 +99,7 @@ public final class RandomTeleport extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PluginLoadListener(this), this);
         getLogger().info(ChatColor.AQUA + "======================================");
         populateWorldQueue();
+        new Timer().startTimer(this);
     }
 
     @Override
