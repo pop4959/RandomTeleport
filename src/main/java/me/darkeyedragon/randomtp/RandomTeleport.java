@@ -7,6 +7,7 @@ import me.darkeyedragon.randomtp.command.context.PlayerWorldContext;
 import me.darkeyedragon.randomtp.config.ConfigHandler;
 import me.darkeyedragon.randomtp.eco.EcoFactory;
 import me.darkeyedragon.randomtp.eco.EcoHandler;
+import me.darkeyedragon.randomtp.listener.CommandPreProcessListener;
 import me.darkeyedragon.randomtp.listener.PluginLoadListener;
 import me.darkeyedragon.randomtp.listener.WorldLoadListener;
 import me.darkeyedragon.randomtp.validator.ChunkValidator;
@@ -78,6 +79,7 @@ public final class RandomTeleport extends JavaPlugin {
         }
         manager.registerCommand(new TeleportCommand(this));
         getServer().getPluginManager().registerEvents(new WorldLoadListener(this), this);
+        getServer().getPluginManager().registerEvents(new CommandPreProcessListener(this), this);
         validatorList = new ArrayList<>();
         getLogger().info(ChatColor.AQUA + "======== [Loading validators] ========");
         configHandler.getConfigPlugin().getPlugins().forEach(s -> {
