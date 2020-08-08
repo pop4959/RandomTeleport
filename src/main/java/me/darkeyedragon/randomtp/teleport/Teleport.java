@@ -101,12 +101,12 @@ public class Teleport {
             property.getCommandSender().spigot().sendMessage(configHandler.getConfigMessage().getDepletedQueue());
             return;
         }
-        LocationSearcher locationSearcher = LocationSearcherFactory.getLocationSearcher(property.getWorld(), plugin);
-        if (!locationSearcher.isSafeLocation(location)) {
-            random();
-            return;
-        }
         PaperLib.getChunkAtAsync(location).thenAccept(chunk -> {
+            LocationSearcher locationSearcher = LocationSearcherFactory.getLocationSearcher(property.getWorld(), plugin);
+            if (!locationSearcher.isSafeLocation(location)) {
+                random();
+                return;
+            }
             Block block = chunk.getWorld().getBlockAt(location);
             Location loc = block.getLocation().add(0.5, 1.5, 0.5);
             plugin.getCooldowns().put(player.getUniqueId(), System.currentTimeMillis());
